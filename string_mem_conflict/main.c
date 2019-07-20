@@ -7,13 +7,17 @@ void _d(char val[], char identifier)
         printf(
             "[%c#%p] index(%d), value(%c), decimal(%d)\n",
                identifier,
-        (void *) &val[i],
+               (void *) &val[i],
                i,
                val[i],
                val[i]
         );
     }
-    printf("--- END RESULT ---\n");
+    printf(
+        "--- END RESULT Case: \'%c\' Lenght: \'%d\' ---\n",
+        identifier,
+        strlen(val)
+    );
 }
 
 int main(int argc, char **argv)

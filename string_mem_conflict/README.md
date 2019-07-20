@@ -1,5 +1,5 @@
 # PoC: C String memory conflict
-## Based on how was the variable being declared
+**__Based on how was the variable being declared__**
 
 **DISCLAIMER**
 Im not a master with C language, Im interest with this memory problem. I love how we can control and maintain memory effectively in C.
@@ -13,8 +13,9 @@ char b[] = "letter"; // the size would depends on its length, which is 7.
 char c[7] = {'l', 'e', 't', 't', 'e', 'r'}; // include null terminator.
 ```
 
-**NOTE**  
+**NOTE**
 _These memory footprints taken after program compiled and run it by `./main`._
+All the cases size is 6 still.
 
 **Memory footprint**
 
