@@ -10,7 +10,7 @@
  *
  * loop: (j - 1)
  *
- * @param char *numeric
+ * @param char *numeric Numeric string (max length: 0b111 + 1).
  * @param uint8_t length Capped by 3 bits.
  *
  * @return uint32_t
@@ -54,12 +54,12 @@ unsigned int to_int(char *numeric, unsigned char length)
          * - stdio.h
          *
          * #0 (i3-4005u @ 1.7GHz ~ Highest):
-         * - Tenary operation: 8 digit case = 0.001s. Highest peak 0.002s (extremely rare).
+         * - Ternary operation: 8 digit case = 0.001s. Highest peak 0.002s (extremely rare).
          * - Switch-case: 8 digit case = 0.001s. Constantly.
          *
          * #1 (i3-4005u @ 0.8GHz ~ Lowest):
-         * - Tenary operation: 8 digit case = 0.002s. Highest peak 0.003s.
-         * - Switch-case: 8 digit case = 0.00s. Highest peak 0.003s.
+         * - Ternary operation: 8 digit case = 0.002s. Highest peak 0.003s.
+         * - Switch-case: 8 digit case = 0.002s. Highest peak 0.003s.
          */
         tmp = numeric[i] == 48 ? 0 :
             numeric[i] == 49 ? 1 :
