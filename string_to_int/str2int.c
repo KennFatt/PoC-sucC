@@ -1,8 +1,24 @@
+#include <stdio.h>
 #include "str2int.h"
 
-uint32_t str2int(const char *numeric_str, uint8_t length)
+uint8_t _strlen(const char *str)
 {
-    if ((length < 0b1) || (length > (0b1000))) {
+    uint8_t res = 0;
+    int i = 0;
+    for (; str[i] != 0; ++i) {
+        ++res;
+    }
+    return res;
+}
+
+uint32_t str2int(const char *numeric_str)
+{
+    /**
+     * Just to make sure the length is valid.
+     */
+    uint8_t length = _strlen(numeric_str);
+
+    if ((length < 0b1) || (length > (0b01001))) {
         return 0;
     }
 
@@ -11,9 +27,9 @@ uint32_t str2int(const char *numeric_str, uint8_t length)
      * ...
      * tmp: n -> Last digit.
      */
-    unsigned int tmp = 0;
+    uint32_t tmp = 0;
 
-    unsigned int result = 0;
+    uint32_t result = 0;
 
     /**
      * if -> length == 3
@@ -25,8 +41,8 @@ uint32_t str2int(const char *numeric_str, uint8_t length)
      * Formula:
      * [j = length - i]
      */
-    int i;
-    for (i = 0; i < length; ++i) {
+    uint8_t i = 0;
+    for (; i < length; ++i) {
         tmp = numeric_str[i] == 48 ? 0 :
             numeric_str[i] == 49 ? 1 :
             numeric_str[i] == 50 ? 2 :
@@ -38,10 +54,10 @@ uint32_t str2int(const char *numeric_str, uint8_t length)
             numeric_str[i] == 56 ? 8 :
             numeric_str[i] == 57 ? 9 : 0;
 
-        int j = length - i;
+        uint8_t j = length - i;
         if (j > 0) {
-            int k = j - 1;
-            for (k; k > 0; --k) {
+            uint8_t k = j - 1;
+            for (; k > 0; --k) {
                 tmp *= 10;
             }
         }

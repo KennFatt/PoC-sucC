@@ -4,8 +4,7 @@
 int main(int argc, char **argv)
 {
     char *deb = argv[1];
-    int len = str2int(argv[2], 1);
-    int res = str2int(deb, len);
+    int res = str2int(deb);
     printf("res: %d\n", res);
 
     return 0;
