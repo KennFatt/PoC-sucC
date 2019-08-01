@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "str2int.h"
 
 uint8_t _strlen(const char *str)
