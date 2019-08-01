@@ -1,10 +1,23 @@
 #include "str2int.h"
 
+/**
+ * DO NOT USE THIS FUNCTION.
+ * This function designed for this project only.
+ */
+int _is_int(uint8_t chr)
+{
+    return chr >= 48 && chr <= 57;
+}
+
+/**
+ * DO NOT USE THIS FUNCTION.
+ * This function designed for this project only.
+ */
 uint8_t _strlen(const char *str)
 {
     uint8_t res = 0;
     int i = 0;
-    for (; str[i] != 0; ++i) {
+    for (; str[i] != 0 && _is_int(str[i]); ++i) {
         ++res;
     }
     return res;
@@ -51,7 +64,11 @@ uint32_t str2int(const char *numeric_str)
             numeric_str[i] == 54 ? 6 :
             numeric_str[i] == 55 ? 7 :
             numeric_str[i] == 56 ? 8 :
-            numeric_str[i] == 57 ? 9 : 0;
+            numeric_str[i] == 57 ? 9 : -1;
+        
+        if (tmp == -1) {
+            return result;
+        }
 
         uint8_t j = length - i;
         if (j > 0) {
